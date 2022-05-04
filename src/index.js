@@ -1,13 +1,12 @@
+//Librerias de electron
 const { app, BrowserWindow, Menu } = require("electron");
-
-const express = require("express");
-const lachi = express();
-
+//otras librerias
 const url = require("url");
 const path = require("path");
+const serialPort = require("serialport");
 
 let mainWindow;
-
+//Inicializando ventana de la app y configs
 app.on("ready", () => {
   mainWindow = new BrowserWindow({
     width: 900,
@@ -25,7 +24,8 @@ app.on("ready", () => {
     })
   );
 });
-const serialPort = require("serialport");
+
+//codigo de serial port
 
 const port = new serialPort("COM4", { baudrate: 9600 }).on(
   "error",

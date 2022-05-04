@@ -1,4 +1,4 @@
-const serialPort = require("serialport");
+/* const serialPort = require("serialport");
 
 const port = new serialPort("COM4", { baudrate: 9600 }).on(
   "error",
@@ -25,3 +25,4 @@ parser.on("data", (datos) => {
   dato6 = parseInt(datas[6], 10);
   dato7 = parseInt(datas[7], 10);
 });
+ */
