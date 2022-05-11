@@ -1,9 +1,14 @@
-/* const { SerialPort } = require("serialport");
-const { ReadlineParser } = require("@serialport/parser-readline");
-const port = new SerialPort({ path: "COM4", baudRate: 9600 });
-const parser = new ReadlineParser({ delimiter: "\n" });
-port.pipe(parser);
-parser.on("data", (datos) => {
+const { ipcRenderer } = require("electron");
+
+function getData() {
+  ipcRenderer.send("new-task", "holamundo");
+}
+
+document.querySelector("#on").addEventListener("click", () => {
+  getData();
+});
+
+/* parser.on("data", (datos) => {
   datas = datos.split(" ");
 
   dato1 = parseInt(datas[1], 10);
@@ -21,5 +26,4 @@ parser.on("data", (datos) => {
   dato7 = parseInt(datas[7], 10);
   document.getElementById("data7").innerHTML = dato7;
 });
-//parser.on("data", addText);
  */

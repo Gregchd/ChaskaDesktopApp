@@ -1,5 +1,7 @@
 const { ipcMain } = require("electron");
 
+const Data = require("./models/Data");
+
 //codigo serial
 const { SerialPort } = require("serialport");
 const { ReadlineParser } = require("@serialport/parser-readline");
@@ -16,7 +18,10 @@ parser.on("data", (datos) => {
   dato5 = parseInt(datas[5], 10);
   dato6 = parseInt(datas[6], 10);
   dato7 = parseInt(datas[7], 10);
-  console.log(dato1);
   //codigo de guardado en base de datos
   //ipcMain.send("datos", datos);
+});
+
+ipcMain.on("new-task", async (e, args) => {
+  console.log(args);
 });

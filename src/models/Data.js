@@ -14,4 +14,4 @@ const dataSchema = new Schema({
   giroscopio: Number,
 });
 
-export default model("Data", dataSchema);
+module.exports = model("Data", dataSchema);
