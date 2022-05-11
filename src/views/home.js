@@ -1,14 +1,14 @@
+const { SerialPort } = require("serialport");
+require("../database");
 const { ipcRenderer } = require("electron");
+const { ReadlineParser } = require("@serialport/parser-readline");
+const port = new SerialPort({ path: "COM4", baudRate: 9600 });
+const parser = new ReadlineParser({ delimiter: "\n" });
 
-function getData() {
-  ipcRenderer.send("new-task", "holamundo");
-}
+const Data = require("../models/Data");
 
-document.querySelector("#on").addEventListener("click", () => {
-  getData();
-});
-
-/* parser.on("data", (datos) => {
+port.pipe(parser);
+parser.on("data", (datos) => {
   datas = datos.split(" ");
 
   dato1 = parseInt(datas[1], 10);
@@ -25,5 +25,33 @@ document.querySelector("#on").addEventListener("click", () => {
   document.getElementById("data6").innerHTML = dato6;
   dato7 = parseInt(datas[7], 10);
   document.getElementById("data7").innerHTML = dato7;
+
+  const data = new Data({
+    temperatura: dato1,
+    humedad: dato2,
+    presion: dato3,
+    gas: dato4,
+    monoxido: dato5,
+    uv: dato6,
+    giroscopio: dato7,
+  });
+
+  data.save((err, document) => {
+    if (err) console.log(err);
+    //console.log(document);
+  });
 });
- */
+
+/* const { ipcRenderer } = require("electron");
+
+function getData() {
+  ipcRenderer.send("db", "on");
+}
+
+document.querySelector("#on").addEventListener("click", () => {
+  getData();
+});
+
+ipcRenderer.on("data", (e, args) => {
+  console.log(args);
+}); */
