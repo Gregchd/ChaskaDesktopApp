@@ -123,3 +123,38 @@ i {
     text-align: center;
     align-items: center;
 }
+
+.lbl{
+    display: inline-block;
+    width: 65px;
+    height: 33px;
+    background: #cccccc;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+.lbl::after{
+    content: '';
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: #eee;
+    border-radius: 100px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: .2s;
+}
+
+#switch:checked + .lbl::after{
+    left: 36px;
+}
+
+#switch:checked + .lbl{
+    background: #29abe2;
+}
+
+#switch{
+    display: none;
+}
