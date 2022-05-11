@@ -7,6 +7,18 @@ const parser = new ReadlineParser({ delimiter: "\n" });
 
 const Data = require("../models/Data");
 
+var checkbox = document.getElementById("switch");
+let conf = 0;
+checkbox.addEventListener("click", function () {
+  if (checkbox.checked) {
+    conf = 1;
+    console.log(conf);
+  } else {
+    conf = 0;
+    console.log(conf);
+  }
+});
+
 port.pipe(parser);
 parser.on("data", (datos) => {
   datas = datos.split(" ");
@@ -35,11 +47,13 @@ parser.on("data", (datos) => {
     uv: dato6,
     giroscopio: dato7,
   });
-
-  data.save((err, document) => {
-    if (err) console.log(err);
-    //console.log(document);
-  });
+  if (conf == 1) {
+    data.save((err, document) => {
+      if (err) console.log(err);
+      //console.log(document);
+      console.log("mandando datos");
+    });
+  }
 });
 
 /* const { ipcRenderer } = require("electron");
