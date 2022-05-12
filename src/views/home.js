@@ -13,9 +13,11 @@ checkbox.addEventListener("click", function () {
   if (checkbox.checked) {
     conf = 1;
     console.log(conf);
+    alert("Se ha conectado a la base de datos");
   } else {
     conf = 0;
     console.log(conf);
+    alert("Se ha desconectado a la base de datos");
   }
 });
 
