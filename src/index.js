@@ -16,6 +16,7 @@ app.on("ready", () => {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    icon: __dirname + "./ico/chaska.ico",
   });
   mainWindow.loadURL(
     url.format({
