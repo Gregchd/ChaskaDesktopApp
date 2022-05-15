@@ -1,5 +1,5 @@
 //Librerias de electron
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow } = require("electron");
 //otras librerias
 const url = require("url");
 const path = require("path");
@@ -15,6 +15,7 @@ app.on("ready", () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      enableRemoteModule: true
     },
     icon: __dirname + "./ico/chaska.ico",
   });
@@ -26,3 +27,4 @@ app.on("ready", () => {
     })
   );
 });
+
