@@ -74,7 +74,7 @@ ipcRenderer.on("data", (e, args) => {
 }); */
 console.log("LIST REACHED");
 
-var correct_port;
+let correct_port;
 const connectBtn = document.getElementById('connectBtn');
 const stopBtn = document.getElementById('off');
 connectBtn.onclick = getSerialPorts;
@@ -103,17 +103,17 @@ async function getSerialPorts()
       Creator: port.manufacturer
     }
   })
-  console.log(serial_ports_list[1].Creator);
-  console.log(serial_ports_list);
 
   serial_ports_list.forEach(
     function(port){
       if(port.Creator.includes('Arduino')) {
         correct_port = port; 
       }
+      else
+        console.log("Arduino port not found.")
     }
   );
-
+  if(correct_port == null) correct_port = serial_ports_list[0];
   serial_connection(correct_port.Port);
   
   //return serial_ports_list;
