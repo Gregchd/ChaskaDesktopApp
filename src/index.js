@@ -12,6 +12,7 @@ app.on("ready", () => {
   mainWindow = new BrowserWindow({
     width: 900,
     height: 800,
+    frame: false, //Set the browser window without upper bar
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
