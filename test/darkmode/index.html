@@ -9,8 +9,9 @@
 </head>
 <body>
     <div class="all">
-        <div class="principal">
+        
             <div class="cont-cartas">
+                <div class="label">Dashboard</div>
                 <div class="cont1">
                     <div class="carta">
                         <h3 class="sensor"><i class="bx bxs-thermometer"></i>Temperatura<br />
@@ -53,7 +54,33 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="conexion">
+                <div class="runserver">
+                    <button class="boton" id="connectBtn">Connect</button>
+                    <button class="boton" id="off">Stop</button>
+                
+                </div>
+                <div class="runserver">
+                    <input type="checkbox" id="switch">
+                
+                    <label for="switch" class="lbl"></label>
+                </div>
+                <div class="dropdown">
+                    <input type="checkbox" id="dropdown">
+                    <label class="dropdown__face" for="dropdown">
+                        <div class="dropdown__text">Ports</div>
+                
+                        <div class="dropdown__arrow"></div>
+                    </label>
+                    <ul class="dropdown__items">
+                        <li>COM1</li>
+                        <li>COM2</li>
+                        <li>COM3</li>
+                        <li>COM4</li>
+                        <li>COM5</li>
+                    </ul>
+                </div>
+            </div>
     </div>
 </body>
 </html>
