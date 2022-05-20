@@ -1,11 +1,8 @@
-//Librerias de electron
 const {
   app,
-  BrowserWindow
+  BrowserWindow,
+  ipcMain
 } = require("electron");
-//otras librerias
-const url = require("url");
-const path = require("path");
 
 let mainWindow;
 
@@ -31,3 +28,21 @@ function createWindow() {
 }
 
 app.on("ready", createWindow);
+
+// Eventos
+
+ipcMain.on('minimizeWindow', function () {
+  mainWindow.minimize();
+});
+
+ipcMain.on('maximizeWindow', function () {
+  mainWindow.maximize();
+});
+
+ipcMain.on('unmaximizeWindow', function () {
+  mainWindow.unmaximize();
+});
+
+ipcMain.on('closeWindow', function () {
+  mainWindow.close();
+});

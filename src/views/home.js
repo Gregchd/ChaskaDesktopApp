@@ -1,6 +1,6 @@
 const { SerialPort } = require("serialport");
-require("../database"); //src\views\database.js
-const { ipcRenderer } = require("electron");
+require("../database");
+//const { ipcRenderer } = require("electron");
 const { ReadlineParser } = require("@serialport/parser-readline");
 //const port = new SerialPort({ path: "COM4", baudRate: 9600 });
 //const parser = new ReadlineParser({ delimiter: "\n" });
@@ -79,16 +79,15 @@ const connectBtn = document.getElementById('connectBtn');
 const stopBtn = document.getElementById('off');
 connectBtn.onclick = getSerialPorts;
 
-async function getSerialPorts() 
-{
+async function getSerialPorts() {
   const sp_list = await SerialPort.list().then((ports, err) => {
-    if(err) {
+    if (err) {
       console.log("Error")
       return
     } else {
       console.log("No Error")
     }
-    
+
     if (ports.length === 0) {
       console.log(ports.length);
     }
@@ -96,7 +95,7 @@ async function getSerialPorts()
     return ports;
   })
 
-  const serial_ports_list = sp_list.map(port =>{
+  const serial_ports_list = sp_list.map(port => {
     console.log(port);
     return {
       Port: port.path,
@@ -105,21 +104,21 @@ async function getSerialPorts()
   })
 
   serial_ports_list.forEach(
-    function(port){
-      if(port.Creator.includes('Arduino')) {
-        correct_port = port; 
+    function (port) {
+      if (port.Creator.includes('Arduino')) {
+        correct_port = port;
       }
       else
         console.log("Arduino port not found.")
     }
   );
-  if(correct_port == null) correct_port = serial_ports_list[0];
+  if (correct_port == null) correct_port = serial_ports_list[0];
   serial_connection(correct_port.Port);
-  
-  //return serial_ports_list;
-} 
 
-function serial_connection(correct_path){
+  //return serial_ports_list;
+}
+
+function serial_connection(correct_path) {
   const port = new SerialPort({ path: correct_path, baudRate: 9600 });
   const parser = new ReadlineParser({ delimiter: "\n" });
 
