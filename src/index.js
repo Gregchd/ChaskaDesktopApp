@@ -15,6 +15,7 @@ function createWindow() {
       enableRemoteModule: true,
       nodeIntegration: true
     },
+    icon: __dirname + "/icons/chaska.ico",
     frame: false
   });
 
