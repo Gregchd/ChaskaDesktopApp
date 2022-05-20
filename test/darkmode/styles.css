@@ -58,6 +58,7 @@ body{
 .runserver {
     justify-content: center;
     display: flex;
+    margin: 20px 0px;
 }
 
 .carta {
@@ -124,6 +125,11 @@ body{
     text-align: center;
     align-items: center;
     color: #FFFFFF;
+}
+
+.conexion{
+    width: 300px;
+    margin-left: 30px;
 }
 
 .lbl {
