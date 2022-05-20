@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.all {
+  /*display: flex;*/
+  position: relative;
+}
+
+.render-c {
+  position: relative;
+  width: 1000px;
+  height: 750px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.conteiner {
+  margin: 15px;
+  display: flex;
+}
+
+.cont-cartas {
+  position: relative;
+  z-index: 1;
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.cont1 {
+  justify-content: center;
+  display: flex;
+}
+
+.cont2 {
+  justify-content: center;
+  display: flex;
+}
+
+.cont3 {
+  justify-content: center;
+  display: flex;
+}
+
+.runserver {
+  justify-content: center;
+  display: flex;
+}
+
+.carta {
+  position: relative;
+  width: 180px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.boton {
+  width: 100px;
+  height: 50px;
+  margin: 15px;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: hsl(202, 70%, 59%);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+
+}
+
+.carta-g {
+  position: relative;
+  width: 320px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.datas {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+i {
+  margin-right: 5px;
+}
+
+.sensor {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.lbl {
+  display: inline-block;
+  width: 65px;
+  height: 33px;
+  background: #cccccc;
+  border-radius: 100px;
+  cursor: pointer;
+  position: relative;
+}
+
+.lbl::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: #eee;
+  border-radius: 100px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: .2s;
+}
+
+#switch:checked+.lbl::after {
+  left: 36px;
+}
+
+#switch:checked+.lbl {
+  background: #29abe2;
+}
+
+#switch {
+  display: none;
+}
+
+body {
+  border: 1px solid #48545c;
+  overflow-y: hidden;
+  margin: 0px;
+}
+
+/* CONFIGURACION DE LA BARRA SUPERIOR  */
+#titlebar {
+  display: block;
+  position: fixed;
+  height: 32px;
+  width: calc(100% - 2px);
+  /*Compensate for body 1px border*/
+  background: #254053;
+}
+
+#main {
+  height: calc(100% - 32px);
+  margin-top: 32px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#titlebar #drag-region {
+  width: 100%;
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+#titlebar {
+  color: #FFF;
+}
+
+#window-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 46px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+#window-controls .button {
+  grid-row: 1 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#min-button {
+  grid-column: 1;
+}
+
+#max-button,
+#restore-button {
+  grid-column: 2;
+}
+
+#close-button {
+  grid-column: 3;
+}
+
+#window-controls {
+  -webkit-app-region: no-drag;
+}
+
+#window-controls .button {
+  user-select: none;
+}
+
+#window-controls .button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#window-controls .button:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#close-button:hover {
+  background: #E81123 !important;
+}
+
+#close-button:active {
+  background: #F1707A !important;
+}
+
+#close-button:active .icon {
+  filter: invert(1);
+}
+
+#restore-button {
+  display: none !important;
+}
+
+#titlebar #drag-region {
+  display: grid;
+  grid-template-columns: auto 138px;
+}
+
+#window-title {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+}
+
+#window-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.maximized #titlebar {
+  width: 100%;
+  padding: 0;
+}
+
+.maximized #window-title {
+  margin-left: 12px;
+}
+
+.maximized #restore-button {
+  display: flex !important;
+}
+
+.maximized #max-button {
+  display: none;
+}
