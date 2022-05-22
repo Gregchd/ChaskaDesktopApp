@@ -8,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <div class="btnconnect">
+            <button class="boton" id="connectBtn" onclick="openConnection()">Connect</button>
+        </div>
+    </div>
+    
     <div class="all">
         
             <div class="cont-cartas">
@@ -54,10 +60,10 @@
                     </div>
                 </div>
             </div>
-            <div class="conexion">
-                <div class="runserver">
-                    <button class="boton" id="connectBtn">Connect</button>                
-                </div>
+            <div class="conexion" id="conexion" >
+                <!-- <div class="runserver">
+                    <button class="boton" id="connectBtn" onclick="openConnection()">Connect</button>                
+                </div> -->
                 <div class="label">Connection</div>
                 <div class="runserver">
                     <div class="dropdown">
@@ -82,9 +88,13 @@
                     <label for="switch" class="lbl"></label>
                 </div>
                 <div class="runserver">
-                    <button class="boton" id="off">Stop</button>
+                    <button class="boton" id="off" onclick="closeConnection()">Stop</button>
                 </div>
             </div>
     </div>
+    <script>
+        function openConnection() {document.getElementById("conexion").style.width = "300px";}
+        function closeConnection() {document.getElementById("conexion").style.width = "0px"}
+    </script>
 </body>
 </html>
