@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <div class="btnconnect">
+        <div class="btnconnect" id="btnconnect">
             <button class="boton" id="connectBtn" onclick="openConnection()">Connect</button>
         </div>
     </div>
@@ -93,8 +93,10 @@
             </div>
     </div>
     <script>
-        function openConnection() {document.getElementById("conexion").style.width = "300px";}
-        function closeConnection() {document.getElementById("conexion").style.width = "0px"}
+        function openConnection() {document.getElementById("conexion").style.width = "300px";
+    document.getElementById("btnconnect").style.width = "0px";}
+        function closeConnection() {document.getElementById("conexion").style.width = "0px";
+    document.getElementById("btnconnect").style.width = "auto";}
     </script>
 </body>
 </html>

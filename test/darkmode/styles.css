@@ -130,6 +130,7 @@ body{
 .btnconnect{
     position: absolute;
     right: 100px;
+    overflow: hidden;
 }
 
 .conexion{
