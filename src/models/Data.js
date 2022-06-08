@@ -14,4 +14,4 @@ const dataSchema = new Schema({
   giroscopio: Number,
 });
 
-module.exports = model("Data", dataSchema);
+module.exports = model("Data", dataSchema); //"Data es el nombre de la base de batos"
