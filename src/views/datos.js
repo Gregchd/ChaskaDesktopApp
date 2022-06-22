@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const collectionList = [];
-var flag = 0;
+var lista_select;
 
 //Funcion para convertir en JSON to CSV
 function convertToCSV(objArray) {
@@ -86,6 +86,20 @@ function main(data) {
   exportCSVFile(headers, data, fileTitle);
 }
 
+function selectCollection(lista_select) {
+  //desplagar pestaña con css
+
+  //guardar con formato csv
+  mongoose.connection.db
+    .collection(lista_select)
+    .find({})
+    .toArray((err, data) => {
+      console.log(data);
+      main(data);
+      console.log(lista_select);
+    });
+}
+
 //conexion a la base de datos
 mongoose
   .connect("mongodb://localhost/electrondb", {
@@ -96,7 +110,7 @@ mongoose
     (db) => (
       console.log("DB conectada"),
       //listado de colecciones de la base de datos
-      mongoose.connection.db.listCollections().toArray(function (err, names) {
+      mongoose.connection.db.listCollections().toArray((err, names) => {
         for (let i = 0; i < names.length; i++) {
           const nameOnly = names[i].name;
           collectionList.push(nameOnly);
@@ -108,17 +122,16 @@ mongoose
         for (var i = 0; i < collectionList.length; i++) {
           var li = document.createElement("li");
           li.appendChild(document.createTextNode(collectionList[i]));
+          li.setAttribute("id", i);
+          li.onclick = (event) => {
+            //Seleccionar nombre de la lista con click
+            lista_select = document.getElementById(event.target.id).innerHTML;
+            //Convertir datos a csv y desplegar pestaña, etc
+            selectCollection(lista_select);
+          };
           ul.appendChild(li);
         }
-      }),
-      //acceder a la info
-      mongoose.connection.db
-        .collection("fechas")
-        .find({})
-        .toArray(function (err, data) {
-          console.log(data);
-          main(data);
-        })
+      })
     )
   )
   .catch((err) => console.log(err));
