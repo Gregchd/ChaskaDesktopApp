@@ -8,8 +8,9 @@ const { ReadlineParser } = require("@serialport/parser-readline");
 //CONECTANDO LA BASE DE DATOS
 const mongoose = require("mongoose");
 const collectionList = [];
+var flag = 0;
 
-mongoose
+/* mongoose
   .connect("mongodb://localhost/electrondb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -24,10 +25,12 @@ mongoose
           collectionList.push(nameOnly);
         }
         console.log(collectionList);
+        flag = 1;
+        console.log(flag);
       })
     )
   )
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err)); */
 
 //Creacion de modelo de base de datos
 const { model, Schema } = require("mongoose");
@@ -166,4 +169,18 @@ function serial_connection(correct_path) {
   });
 }
 
-console.log(collectionList);
+//promesa pendiente
+console.log(flag);
+
+if (flag == 1) {
+  console.log(collectionList.length);
+
+  //AGREGAR COLLECTIONS A LISTA HTML
+  var ul = document.getElementById("l_collection");
+
+  for (var i = 0; i < collectionList.length; i++) {
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(collectionList[i]));
+    ul.appendChild(li);
+  }
+}
