@@ -98,6 +98,9 @@ function selectCollection(lista_select) {
       main(data);
       console.log(lista_select);
     });
+
+  //eliminar colleccion
+  //pendiente
 }
 
 //conexion a la base de datos
