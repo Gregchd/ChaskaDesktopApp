@@ -9,6 +9,24 @@ body{
     box-sizing: border-box;
 }
 
+.navbar{
+    position: absolute;
+    justify-content: center;
+    z-index: 3;
+    color: #fff;
+    margin-top: 15%;
+}
+
+.nav-b{
+    padding: 15px;
+}
+
+.navbar i{
+    width: 40px;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
 .all{
     display: flex;
     flex-grow: 4;
