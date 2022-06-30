@@ -32,6 +32,13 @@ const Data = model(fecha.toString(), dataSchema); */
 
 const connectBtn = document.getElementById("connectBtn");
 const stopBtn = document.getElementById("off");
+
+function openConnection() {
+  document.getElementById("conexion").style.width = "300px";
+  document.getElementById("btnconnect").style.width = "0px";
+}
+
+connectBtn.onclick = openConnection;
 connectBtn.onclick = getSerialPorts;
 
 /* stopBtn.onclick = () => {
@@ -39,6 +46,8 @@ connectBtn.onclick = getSerialPorts;
 }; */
 
 async function getSerialPorts() {
+  document.getElementById("conexion").style.width = "300px";
+  document.getElementById("btnconnect").style.width = "0px";
   const sp_list = await SerialPort.list().then((ports, err) => {
     if (err) {
       console.log("Error");
@@ -58,7 +67,7 @@ async function getSerialPorts() {
     console.log(port);
     return {
       Port: port.path,
-      Creator: port.manufacturer,
+      /*       Creator: port.manufacturer, */
     };
   });
 
@@ -66,17 +75,19 @@ async function getSerialPorts() {
   console.log(serial_ports_list);
 
   //lista de puertos en html ul & li
-  var ul = document.getElementById("l_ports");
+  var ul = document.getElementById("dropdown__items");
 
   for (var i = 0; i < serial_ports_list.length; i++) {
     var li = document.createElement("li");
-    li.appendChild(document.createTextNode(serial_ports_list[i]));
+    li.appendChild(document.createTextNode(serial_ports_list[i]["Port"]));
     li.setAttribute("id", i);
     li.onclick = (event) => {
       port_select = document.getElementById(event.target.id).innerHTML;
       //funcion de asignacion de puerto
+      console.log(port_select);
       serialConnection(port_select);
     };
+    ul.appendChild(li);
   }
 }
 
@@ -91,28 +102,28 @@ function serialConnection(port_select) {
     dato1 = parseInt(datas[1], 10);
     document.getElementById("data1").innerHTML = dato1;
     dato2 = parseInt(datas[2], 10);
-    document.getElementById("data1").innerHTML = dato2;
+    document.getElementById("data2").innerHTML = dato2;
     dato3 = parseInt(datas[3], 10);
-    document.getElementById("data1").innerHTML = dato3;
+    document.getElementById("data3").innerHTML = dato3;
     dato4 = parseInt(datas[4], 10);
-    document.getElementById("data1").innerHTML = dato4;
+    document.getElementById("data4").innerHTML = dato4;
     dato5 = parseInt(datas[5], 10);
-    document.getElementById("data1").innerHTML = dato5;
+    document.getElementById("data5").innerHTML = dato5;
     dato6 = parseInt(datas[6], 10);
-    document.getElementById("data1").innerHTML = dato6;
+    document.getElementById("data6").innerHTML = dato6;
     dato7 = parseInt(datas[7], 10);
-    document.getElementById("data1").innerHTML = dato7;
+    document.getElementById("data7").innerHTML = dato7;
 
-    const data = new Data({
-      temperatura: dato1,
-      humedad: dato2,
-      presion: dato3,
-      gas: dato4,
-      monoxido: dato5,
-      uv: dato6,
-      giroscopio: dato7,
-    });
     if (conf == 1) {
+      const data = new Data({
+        temperatura: dato1,
+        humedad: dato2,
+        presion: dato3,
+        gas: dato4,
+        monoxido: dato5,
+        uv: dato6,
+        giroscopio: dato7,
+      });
       data.save((err, document) => {
         if (err) console.log(err);
         //console.log(document);

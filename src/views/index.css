@@ -193,6 +193,10 @@ body{
     display: none;
 }
 
+.dropdown-z{
+    z-index: 3;
+}
+
 .dropdown {
     position: relative;
     width: 230px;
@@ -219,7 +223,7 @@ body{
     list-style-type: none;
     justify-content: space-between;
     visibility: hidden;
-    z-index: -1;
+    z-index: 3;
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.93, 0.88, 0.1, 0.8);
 }

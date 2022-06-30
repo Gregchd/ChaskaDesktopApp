@@ -5,6 +5,7 @@ const { ReadlineParser } = require("@serialport/parser-readline");
 const mongoose = require("mongoose");
 
 //variables de datos
+var datas;
 var dato1, dato2, dato3, dato4, dato5, dato6, dato7;
 
 /* var Data; */
@@ -26,9 +27,9 @@ const dataSchema = new Schema({
   giroscopio: Number,
 });
 
-/* const fecha = new Date();
+const fecha = new Date();
 
-const Data = model(fecha.toString(), dataSchema); */
+const Data = model(fecha.toString(), dataSchema);
 
 const connectBtn = document.getElementById("connectBtn");
 const stopBtn = document.getElementById("off");
@@ -132,9 +133,9 @@ function dataBase() {
     .then((db) => console.log("DB conectada"))
     .catch((err) => console.log(err));
 
-  const fecha = new Date();
+  /* const fecha = new Date();
 
-  Data = model(fecha.toString(), dataSchema);
+  Data = model(fecha.toString(), dataSchema); */
 }
 
 //validacion de conexion a base de datos
