@@ -147,7 +147,7 @@ body{
 
 .btnconnect{
     position: absolute;
-    right: 100px;
+    right: 50px;
     overflow: hidden;
 }
 
@@ -156,6 +156,8 @@ body{
     margin-left: 30px;
     overflow: hidden;
     margin-top: 40px;
+    position: absolute;
+    right: 10px;
 }
 
 .lbl {

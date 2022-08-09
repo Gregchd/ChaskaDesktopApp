@@ -19,6 +19,32 @@
             <button class="boton" id="connectBtn" onclick="openConnection()">Connect</button>
         </div>
     </div>
+    <div class="conexion" id="conexion">
+        <!-- <div class="runserver">
+                            <button class="boton" id="connectBtn" onclick="openConnection()">Connect</button>                
+                        </div> -->
+        <div class="label">Connection</div>
+        <div class="runserver" class="dropdown-z">
+            <div class="dropdown">
+                <input type="checkbox" id="dropdown">
+                <label class="dropdown__face" for="dropdown">
+                    <div class="dropdown__text">Ports</div>
+    
+                    <div class="dropdown__arrow"></div>
+                </label>
+                <ul class="dropdown__items" id="dropdown__items">
+                </ul>
+            </div>
+        </div>
+        <div class="runserver">
+            <input type="checkbox" id="switch">
+    
+            <label for="switch" class="lbl"></label>
+        </div>
+        <div class="runserver">
+            <button class="boton" id="off" onclick="closeConnection()">Stop</button>
+        </div>
+    </div>
     
     <div class="all">
         
@@ -66,33 +92,9 @@
                     </div>
                 </div>
             </div>
-            <div class="conexion" id="conexion" >
-                <!-- <div class="runserver">
-                    <button class="boton" id="connectBtn" onclick="openConnection()">Connect</button>                
-                </div> -->
-                <div class="label">Connection</div>
-                <div class="runserver" class="dropdown-z">
-                    <div class="dropdown">
-                        <input type="checkbox" id="dropdown">
-                        <label class="dropdown__face" for="dropdown">
-                            <div class="dropdown__text">Ports</div>
-                    
-                            <div class="dropdown__arrow"></div>
-                        </label>
-                        <ul class="dropdown__items" id="dropdown__items">
-                        </ul>
-                    </div>
-                </div>
-                <div class="runserver">
-                    <input type="checkbox" id="switch">
-                
-                    <label for="switch" class="lbl"></label>
-                </div>
-                <div class="runserver">
-                    <button class="boton" id="off" onclick="closeConnection()">Stop</button>
-                </div>
-            </div>
+            
     </div>
+    
     <script src="./borrador.js""></script>
     <script>
         function openConnection() {document.getElementById("conexion").style.width = "300px";
