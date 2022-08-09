@@ -4,8 +4,6 @@ const { app, BrowserWindow } = require("electron");
 const url = require("url");
 const path = require("path");
 
-require("./main");
-
 let mainWindow;
 //Inicializando ventana de la app y configs
 app.on("ready", () => {
@@ -15,7 +13,7 @@ app.on("ready", () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      enableRemoteModule: true
+      enableRemoteModule: true,
     },
     icon: __dirname + "./ico/chaska.ico",
   });
@@ -27,4 +25,3 @@ app.on("ready", () => {
     })
   );
 });
-
